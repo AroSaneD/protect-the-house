@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { ABuilding } from '../../../model/Building';
 
@@ -9,8 +9,10 @@ import { ABuilding } from '../../../model/Building';
 })
 export class AppComponent implements OnInit{
 
+  @ViewChild('gameCanvas') canvas: ElementRef;
+
   ngOnInit(): void {
-    const canvas = document.getElementById("gameCanvas") as HTMLCanvasElement;
+    const canvas = this.canvas.nativeElement as HTMLCanvasElement;
     const context = canvas.getContext("2d") as CanvasRenderingContext2D;
 
     context.fillStyle = "black";
