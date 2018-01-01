@@ -11,24 +11,18 @@ export class SpatialGrid {
         public chunksHigh: number,
         public context: CanvasRenderingContext2D) {
 
-        const chunkWidth = this.size.x / chunksWide;
-        const chunkHeight = this.size.y / chunksHigh;
-        
+        // The values are floored, to prevent floating point numbers, which are troublesome when rendering pixels.
+        // Todo: Test if binary operators are faster than flooring.
+        const chunkWidth = Math.floor(this.size.x / chunksWide);
+        const chunkHeight = Math.floor(this.size.y / chunksHigh);
+
         for (let x = 0; x < this.chunksWide; x++) {
             this.chunkMatrix[x] = {};
             for (let y = 0; y < this.chunksHigh; y++) {
 
                 this.chunkMatrix[x][y] = new GridChunk(
-                    // The values are floored, to prevent floating point numbers, which are troublesome when rendering pixels.
-                    // Todo: Test if binary operators are faster than flooring.
-                    new Vector(
-                        chunkWidth * x,
-                        chunkHeight * y
-                    ),
-                    new Vector(
-                        Math.floor(chunkWidth),
-                        Math.floor(chunkHeight)
-                    ),
+                    new Vector(chunkWidth * x, chunkHeight * y),
+                    new Vector(chunkWidth, chunkHeight),
                     this.context
                 );
             }
