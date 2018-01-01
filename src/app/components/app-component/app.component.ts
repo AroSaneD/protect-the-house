@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
-import { ABuilding } from '../model/Building';
+import { ABuilding } from '../../../model/Building';
 
 @Component({
   selector: 'app-root',
