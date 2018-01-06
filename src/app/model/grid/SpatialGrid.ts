@@ -1,8 +1,32 @@
 import { Vector } from "../Utility/Vector";
 import { GridChunk } from "./GridChunk";
+import { error } from "selenium-webdriver";
 
 // Todo: Think of a more fitting name
 export class SpatialGrid {
+
+    private static readonly gridSize = new Vector(750, 500);
+    private static readonly gridSizeHorizontal = 5;
+    private static readonly gridSizeVertical = 3;
+
+    private static _instance: SpatialGrid;
+
+    public static get Instance(): SpatialGrid{
+        if(SpatialGrid._instance == null){
+            throw new Error("Spatial grid not yet initialized");
+        }
+
+        return SpatialGrid._instance;
+    }
+
+    public static InitializeGrid(context: CanvasRenderingContext2D): SpatialGrid{
+            if(SpatialGrid._instance != null){
+                throw new Error("Spatial grid is already initialized");
+            }
+
+            // SpatialGrid._instance = new SpatialGrid(SpatialGrid.gridSize, SpatialGrid.gridSizeHorizontal, SpatialGrid.gridSizeVertical, )
+            return null;
+    }
 
     chunkMatrix = {}; // Test... array of arrays may or not be better.
 

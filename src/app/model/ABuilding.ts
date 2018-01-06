@@ -3,6 +3,7 @@ import { IDamageable } from "./Interfaces/IDamageable";
 import { IDrawable } from "./Interfaces/IDrawable";
 import { UsingCanvas } from "./Utility/UsingCanvas";
 import { Vector } from "./Utility/Vector";
+import { DrawingComponent } from "./grid/DrawingComponent";
 
 export class ABuilding implements IBuilding, IDamageable, IDrawable {
 
@@ -18,6 +19,10 @@ export class ABuilding implements IBuilding, IDamageable, IDrawable {
 
     getDamaged(hp: number): void {
         this.hp -= hp;
+    }
+
+    public get drawingComponent(): DrawingComponent {
+        return null;
     }
 
     draw() {

@@ -18,8 +18,8 @@ export class AppComponent implements OnInit{
     const context = canvas.getContext("2d") as CanvasRenderingContext2D;
 
     context.fillStyle = "black";
-    const worldGrid = new SpatialGrid(new Vector(750, 500), 5, 3, context); // Todo: Turn this into a singleton
-    worldGrid.draw();
+    // const worldGrid = new SpatialGrid(new Vector(750, 500), 5, 3, context); // Todo: Turn this into a singleton
+    // worldGrid.draw();
 
     const building = new ABuilding(context);
     building.draw();
